@@ -1,0 +1,18 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+{% block body %}
+<h1>Eliminar Blog</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    Estás seguro que deseas borrar el blog {{blog.titulo}}?
+    <input type="submit" value="Eliminar">
+</form>
+<p>
+    <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+</p>
+<p>
+    <a href="{% url 'Lista_Blogs' %}">Regresar al listado de entradas</a>
+</p>
+{% endblock body %}
+
