@@ -1,0 +1,26 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+{% block body %}
+<h3>Blogs publicados</h3>
+{% if blogs %}
+{% for blog in blogs %}
+<li>{{blog.titulo}} - {{blog.fecha}}
+    <p>
+        <a href="{% url 'Detalle_Blog' blog.pk %}">Ver</a>
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        |
+        <a href="{% url 'Editar_Blog' blog.pk %}">Editar</a>
+        |
+        <a href="{% url 'Borrar_Blog' blog.pk %}">Borrar</a>
+        {% endif %}
+    </p>
+</li>
+<p>
+    <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+</p>
+{% endfor %}
+{% else %}
+<p>No hay páginas aún.</p>
+{% endif %}
+{% endblock body %}
+
