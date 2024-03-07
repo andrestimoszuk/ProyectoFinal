@@ -1,0 +1,17 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+{% block body %}
+<h3>Publicá una nueva entrada de blog</h3>
+
+<form action="" method="POST" class="needs-validation" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Publicar">
+</form>
+<p>
+    <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+</p>
+<p>
+    <a href="{% url 'Lista_Blogs' %}">Regresar al listado de entradas</a>
+</p>
+{% endblock body %}

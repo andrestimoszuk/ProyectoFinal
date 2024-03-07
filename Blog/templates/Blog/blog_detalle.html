@@ -1,0 +1,21 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+{% block body %}
+
+<h3>{{blog.titulo}}</h3>
+<p>{{blog.subtitulo}}</p>
+<p><i>{{blog.cuerpo}}</i></p>
+{% if blog.imagen %}
+<img src="{{blog.imagen.url}}" alt="" height="300px">
+{% else %}
+<img src="" alt="Sin imagen" height="200px">
+{% endif %}
+<p>
+    <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+</p>
+<p>
+    <a href="{% url 'Lista_Blogs' %}">Regresar al listado de entradas</a>
+</p>
+{% endblock body %}
+
+<!-- <p>{{blog.imagen}}</p>-->
