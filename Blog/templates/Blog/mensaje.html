@@ -1,0 +1,15 @@
+{% extends "Blog/base.html" %}
+
+{% block body %}
+    {% if mensaje %}
+    <h3>
+        {{mensaje}}
+    </h3>
+    {% endif %}
+<p>
+    <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+</p>
+<p>
+    <a href="{% url 'Lista_Blogs' %}">Ver listado de entradas</a>
+</p>
+{% endblock body %}

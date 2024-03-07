@@ -1,0 +1,22 @@
+{% extends "Blog/base.html" %}
+
+{% load static %}
+
+{% block body %}
+    <h1>Editar perfil</h1>
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <table>
+            {{ miFormulario }}
+        </table>
+        <input type="submit", value="Guardar">
+    </form>
+    <button type='button'>
+        <a class="navbar-brand" href="{% url 'CambiarClave' %}">Cambiar clave</a>
+    </button>
+    <p>
+        <a href="{% url 'Inicio' %}">Regresar al inicio</a>
+    </p>
+    <p>
+        <a href="{% url 'Lista_Blogs' %}">Ver listado de entradas</a>
+    </p>
+{% endblock %}

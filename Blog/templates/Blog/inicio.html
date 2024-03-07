@@ -1,0 +1,25 @@
+{% extends "Blog/base.html" %}
+
+{% block body %}
+    <h3>Bienvenidos a la página de Girando por el Mundo!
+    </h3>
+    <p>Esta página está pensada para que los viajeros compartan sus experiencias de viaje.</p>
+    <p>Para poder publicar tenes que registrarte como usuario.
+    Una vez que ingreses por primera vez, acordate de agregar un avatar entrando en "editar tu perfil" :)</p>
+
+    {% if not request.user.is_authenticated %}
+    </h3><h3>
+        <a href="{% url 'Login' %}">Ingresá</a>
+    </h3><h3>
+        <a href="{% url 'Registro' %}">Registrate</a>
+    </h3><h3>
+        {% else %}
+    </h3><h3>
+        <a href="{% url 'Lista_Blogs' %}">Ver listado de entradas</a>
+    </h3><h3>
+        <a href="{% url 'Nuevo_Blog' %}">Ingresar una nueva entrada de blog</a>
+    </h3><h3>
+        <a href="{% url 'EditarPerfil' %}">Editar tu perfil</a>
+    {% endif %}
+    </h3>
+{% endblock body %}
